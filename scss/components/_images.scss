@@ -1,0 +1,27 @@
+// ==========================================================================
+// Images
+// ==========================================================================
+
+.img {
+    @include m(logo) {
+         @extend %img;
+         @include mq(medium) {
+             margin-right: 0;
+         }
+    }
+
+    @include m(frame) {
+         @extend %img;
+         border: em(2px) solid lighten($grey, 20%);
+         padding: em(15px);
+         @include mq(small) {
+             width: 100%;
+         }
+    }
+
+    @include m(avatar) {
+         @extend %img;
+         
+    }
+}
+

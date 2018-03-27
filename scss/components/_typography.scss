@@ -1,0 +1,28 @@
+// ==========================================================================
+// Typography
+// ==========================================================================
+
+.headline {
+
+    @include m(primary) {
+        @extend %headlines;
+        color: cs(success);
+        width: 75%;
+        margin-left: em(10px);
+    }
+
+    @include m(secondary) {
+        @extend %headlines;
+    }
+}
+
+.blockquote {
+   font-size: em(20px);
+   @include bs(bq);
+}
+
+.card {
+    @include mq(medium) {
+        padding: 0 em(100px);
+    }
+}

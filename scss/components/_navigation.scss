@@ -1,0 +1,46 @@
+// ==========================================================================
+// Navigation
+// ==========================================================================
+nav {
+    height: 100%;
+}
+
+.nav {
+    
+    @include mq(small) {
+        margin-bottom: em(50px);
+    }
+
+    @include mq(medium) {
+        height: 100%;
+        padding-left: 35%;
+    }
+
+     a {
+       @include link;
+    }
+}
+
+.nav__item {
+    border-radius: $br--default;
+
+    @extend %nav-item;
+
+    &:hover {
+        background-color: cs(success);
+
+        a {
+            color: $white;
+        }
+    }
+
+    @include mq(small) {
+        width: 100%;
+        display: block;
+    }
+
+    @include mq(medium) {
+        display: inline-block;
+        margin-left:  em(5px);
+    }
+}

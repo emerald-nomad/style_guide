@@ -1,0 +1,70 @@
+// ==========================================================================
+// Extends
+// ==========================================================================
+
+// Buttons
+
+.theme__colors {
+  padding: 15px 30px;
+  border: 0;
+  border-radius : $br--default;
+  font-size : em(14px);
+  font-weight: $font-weight--medium;
+  transition: opacity $trns-duration;
+  display: block;
+  margin-bottom: em(20px);
+}
+
+// Center elements
+
+.centered {
+	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Links
+
+%link {
+    text-decoration: none;
+    color: cs(default);
+}
+
+// Nav-Item
+
+%nav-item {
+    margin-top: em(20px);
+    margin-bottom: em(20px);
+    
+    font-weight: $font-weight--light;
+    text-align: center;
+    font-size: em(18px);
+    padding: em(8px, 18px);
+    border-bottom: 1px solid transparent;
+}
+
+// Images
+
+%img {
+    display: block;
+    margin: em(20px) auto;
+}
+
+// Headline
+
+%headlines {
+    margin: em(15px) 0;
+}
+
+// Screen reader text
+
+%srt {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}

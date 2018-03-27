@@ -1,0 +1,21 @@
+// ==========================================================================
+// Forms
+// ==========================================================================
+.form{
+    @include e(label--hidden) {
+        @extend %srt;
+    }
+
+    @include e(input) {
+        margin-bottom: em(20px);
+        border: none;
+        font-size: em(18px);
+        width: 100%;
+
+        @include bs(form);
+    }
+
+    & > button {
+        width: 100%;
+    }
+}

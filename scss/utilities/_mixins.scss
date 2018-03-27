@@ -1,0 +1,127 @@
+// // ==========================================================================
+// // Mixins
+// // ==========================================================================
+
+// Generate button modifier color classes
+
+@mixin bg-colors($map) {
+	@each $button, $color in $map {
+		&--#{$button} {
+      background-color: $color; 
+      @content;
+		}
+	}
+}
+
+// Links
+
+@mixin link($type: 'default') {
+
+    @if $type == 'p' {
+      text-decoration: none;
+      color: cs(default);
+    }
+    @else if $type == 'default' {
+      text-decoration: none;
+    }
+}
+
+// BEM selectors
+
+@mixin e($element) {
+	&__#{$element} {
+    @content;
+  }
+}
+@mixin m($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+
+// Media queries
+
+@mixin mq($break) {
+  @if $break == "small" {
+    @media (min-width: $brkpoint-sm) and (max-width: $brkpoint-md) {
+      @content;
+    }
+  }
+  @else if $break == "medium" {
+    @media (min-width: $brkpoint-md + 1) {
+      @content;
+    }
+  }
+  @else if $break == "large" {
+    @media (min-width: $brkpoint-lg) {
+      @content;
+    }
+  }
+   @else {
+   	@error "Whoops! No value could be retrieved for `#{$break}`. ";
+  }
+}
+
+// Flexbox 
+
+@mixin flex($direction) {
+  @if $direction == 'row' {
+    display: flex;
+    justify-content: space-around;
+    @content;
+  }
+  @else if $direction == 'col' {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  @else {
+    @error "Flex argument must be either row or col.";
+  }
+}
+
+// Grid Columns
+
+@mixin g-columns {
+  @for $i from 1 through $g-col-count {
+    $context: g-context($g-col-width, $g-col-count ,$g-gutter-width) !global;  
+    $target: ($g-col-width * $i) + ($g-gutter-width * ($i - 1));
+
+    @include mq(small) {
+      width: 100%;
+    }
+    
+    // Generate column modifier classes for media queries with width medium and higher
+    @include mq(medium) {
+      &--#{$i} {
+          width: percentage($target / $context);
+        }
+    }
+  }
+}          
+
+// Border style 
+@mixin bs($side) {
+  @if $side == 'bq' {
+    border-radius: $br--default;
+    border-left: em(5px) solid cs(success);
+    padding-left: em(5px);
+  }
+  @else if $side == 'form' {
+    border-bottom: em(5px) solid cs(success);
+    padding-bottom: em(8px);
+    padding-left: em(10px);
+  }
+  @else {
+    @error "Sorry `#{$side}` is not a valid argument.";
+  }
+}
+
+// // Adjacent sibling margins
+
+// @mixin doubly($margin: 1em) {
+// 	& + & {
+// 	  margin-left: $margin;
+//     @content;
+// 	}
+// }

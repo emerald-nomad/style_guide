@@ -1,0 +1,75 @@
+// ==========================================================================
+// Variables
+// ==========================================================================
+
+// Font Stacks
+
+$font-url--google : '';
+$font-family--primary: '';
+$font-family--secondary: '';
+
+// Font Weights
+
+$font-weight--thin       : 100;
+$font-weight--light      : 300;
+$font-weight--medium     : 400;
+$font-weight--bold       : 700;
+$font-weight--extra-bold : 900;
+
+// Descriptive Base Colors
+
+$white          : #fff;
+$grey           : #808080;
+
+$malibu         : #51DDFC;
+$viking         : #58E1C1;
+$sunglo         : #E4757A;
+$coral          : #FD7856;
+$purple-majesty : #927BC1;
+
+// Button Colors
+
+$button-colors: (
+    default : $malibu,
+	success : $viking,
+	error   : $sunglo,
+	warning : $coral,
+	info    : $purple-majesty
+);
+
+// Theme Colors 
+$theme-colors: (
+    3: lighten($purple-majesty, 10%),
+    4: $malibu,
+    5: $viking,
+    6: darken($malibu, 10%),
+    7: $sunglo,
+    8: $coral,
+    12: $viking
+);
+
+// Text
+
+$base__font-size : 16px;
+
+// Border radius
+
+$br--default    : .4em;
+$br--round      : 50%;
+
+// Breakpoints
+
+$brkpoint-sm    : 1px;
+$brkpoint-md    : 768px;
+$brkpoint-lg    : 1100px;
+
+// Transitions
+
+$trns-duration  : .3s;
+
+// Grid
+
+$g-col-width    : 1px;
+$g-gutter-width : 1px;
+$g-col-count    : 12;
+$g-cont-max-w   : 1400px;

@@ -1,0 +1,74 @@
+// ==========================================================================
+// Grid Container
+// ==========================================================================
+
+.container {
+  @extend .centered;
+  width: 80%;
+ 
+  // Make nested grid 100%
+  [class*="grid__col--"] > & {
+    width: 100%; 
+  }
+}
+
+.grid__row {
+    @include mq(small) {
+        @include flex(col);
+    }
+
+     @include mq(medium) {
+        @include flex(row);
+    }
+
+    margin: em(20px) 0;
+}
+
+// ==========================================================================
+// Grid Columns
+// ==========================================================================
+
+// Calculate grid columns and add  background colors;
+
+.grid__col {
+   // @include g-columns; 
+    @include mq(small) {
+        @for $i from 1 through 12 {
+             @if $i == 1 {
+                width: 100%;
+               // margin: 0;
+            }
+            @else {
+                @include m($i) {
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+        }
+    }
+    @include mq(medium) {
+        @for $i from 1 through 12 {
+            @if $i == 1 {
+                width: percentage($i / 12);
+                margin: 0;
+            }
+            @else {
+                @include m($i) {
+                    width: percentage($i / 12);
+                    margin: 0;
+                    @if $i == 12 {
+                        display: flex;
+                        justify-content: space-around;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@each $num, $color in $theme-colors {
+    .grid__col--#{$num}.theme__colors {
+        background-color: $color;
+        margin: em(5px);
+    }
+}
